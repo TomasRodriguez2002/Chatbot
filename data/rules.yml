@@ -1,0 +1,94 @@
+version: "3.1"
+
+rules:
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- rule: Say you are welcome
+  steps:
+  - intent: thank
+  - action: utter_you_are_welcome
+
+- rule: Say great
+  steps:
+  - intent: say_it_did_help
+  - action: utter_great  
+
+- rule: Say sorry
+  steps:
+  - intent: say_it_didnt_help
+  - action: utter_sorry  
+
+- rule: save users name
+  steps:
+  - intent: say_name
+  - action: action_extract_name_and_lastname
+  #- action: action_display_name_and_lastname
+  - action: utter_ask_dni
+
+- rule: save users document  
+  steps:
+  - intent: say_dni
+  - action: action_extract_document
+  #- action: action_display_document
+  - action: utter_ask_birthdate
+
+- rule: save users birthdate
+  steps:
+  - intent: say_birthdate
+  - action: action_extract_birthdate
+  #- action: action_display_birthday
+  - action: utter_ask_email
+  
+- rule: save users email and add client  
+  steps:
+  - intent: say_email
+  - action: action_extract_email
+  #- action: action_display_email
+  - action: action_add_client
+
+- rule: User ask product
+  steps:
+  - intent: ask_product
+  - action: utter_ask_brand
+
+- rule: User say brand and search product
+  steps:
+  - intent: say_brand
+  - action: action_search_product
+
+- rule: User ask promotions
+  steps:
+  - intent: ask_promotions
+  - action: normalize_category_action
+  - action: action_show_promotions
+
+- rule: show promotions with lower prices
+  steps:
+  - intent: ask_promotions_with_lower_prices
+  - action: action_show_promotions_with_price 
+
+- rule: User say his dni to login
+  steps:
+  - intent: say_dni_to_login
+  - action: action_get_client_data
+  - action: action_birthday_discount
+  - action: action_search_promotions
+
+- rule: User report a product
+  steps:
+  - intent: report_product
+  - action: action_report_product
+
+- rule: User ask for suggestion
+  steps:
+  - intent: ask_about_product
+  - action: action_predict_product

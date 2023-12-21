@@ -1,0 +1,70 @@
+[
+  {
+    "nombre": "Lautaro",
+    "apellido": "Garcia",
+    "fecha_nacimiento": "10/10/1986",
+    "documento": "32777444",
+    "email": "lautarogarcia@gmail.com",
+    "categorias_consultadas": {
+      "lacteos": 0,
+      "carniceria": 0,
+      "limpieza": 0,
+      "verduleria": 0,
+      "galletitas": 0,
+      "bebidas": 0,
+      "panaderia": 0,
+      "reposteria": 0
+    }
+  },
+  {
+    "nombre": "Julian",
+    "apellido": "Herrera",
+    "fecha_nacimiento": "7/7/1999",
+    "documento": "4123456",
+    "email": "julianherrera@gmail.com",
+    "categorias_consultadas": {
+      "lacteos": 0,
+      "carniceria": 0,
+      "limpieza": 0,
+      "verduleria": 0,
+      "galletitas": 0,
+      "bebidas": 0,
+      "panaderia": 0,
+      "reposteria": 0
+    }
+  },
+  {
+    "nombre": "Luis",
+    "apellido": "Sosa",
+    "fecha_nacimiento": "30/1/1974",
+    "documento": "24777111",
+    "email": "luissosa@gmail.com",
+    "categorias_consultadas": {
+      "lacteos": 1,
+      "carniceria": 0,
+      "limpieza": 0,
+      "verduleria": 0,
+      "galletitas": 1,
+      "bebidas": 0,
+      "panaderia": 0,
+      "reposteria": 0
+    }
+  },
+  {
+    "nombre": "Lionel",
+    "apellido": "Messi",
+    "fecha_nacimiento": "10/11/1987",
+    "documento": "18122022",
+    "email": "lionelmessi10@gmail.com",
+    "categorias_consultadas": {
+      "lacteos": 0,
+      "carniceria": 0,
+      "limpieza": 1,
+      "verduleria": 0,
+      "galletitas": 1,
+      "bebidas": 0,
+      "panaderia": 0,
+      "reposteria": 0
+    }
+  }
+]

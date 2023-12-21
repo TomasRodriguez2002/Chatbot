@@ -1,0 +1,724 @@
+version: "3.1"
+nlu:
+- intent: greet
+  examples: |
+    - hola
+    - holi
+    - buenas
+    - que onda
+    - como estas?
+    - como andas
+    - buen dia
+    - buenos dias
+    - buenas tardes
+    - que tal?
+    - como va?
+    - toodo bien?
+
+
+- intent: goodbye
+  examples: |
+    - hasta luego
+    - nos vemos
+    - chau
+    - adios
+    - hasta la proxima
+    - hasta pronto
+    - me despido
+    - sayonara
+    - Chao chao
+    - buenas noches
+    - cuidate
+    - hasta mañana
+    - que tengas un buen dia
+    - te dejo por ahora
+
+
+- intent: thank
+  examples: |
+    - muchas gracias
+    - gracias por tu ayuda
+    - me salvaste, gracias
+    - te agradezco por ayudarme
+    - mil gracias
+    - te debo una, gracias
+
+
+- intent: say_it_did_help
+  examples: |
+    - me sirvio tu ayuda, muchas gracias
+    - tu ayuda me vino de diez
+    - estoy satisfecho con tu respuesta
+    - me encuentro conforme con la respuesta
+    - si, gracias por tu ayuda
+    - si, respondiste a mis preguntas
+
+
+- intent: say_it_didnt_help
+  examples: |
+    - lamentablemente no me ha servido
+    - no me encuentro satisfecho con la respuesta
+    - no me sirvio de mucha ayuda
+    - no respondiste lo que te pedi
+    - la respuesta no fue lo que esperaba
+    - necesito otra respuesta
+
+
+- intent: affirm_to_create_account
+  examples: |
+    - si, me gustaria crearme una cuenta
+    - dale, quiero crearme una cuenta
+    - me parece bien, que tengo que hacer para crearme una cuenta?
+    - ok, que hago para crearme una cuenta?
+    - joya, hagamos mi cuenta
+    - me interesa crearme una cuenta
+    - que tengo que hacer para crearme mi cuenta?
+
+
+- intent: deny_to_create_account
+  examples: |
+    - por el momento no quiero crearme una cuenta
+    - no gracias, tal vez luego
+    - por ahora no quiero crearme una cuenta, gracias
+    - tal vez en otro momento me cree una cuenta
+    - no tengo ganas ahora de crearme una cuenta
+    - me creare una cuenta en otro momento
+    - no tengo tiempo para crearme una cuenta
+    - ando corto con los tiempos para crearme una cuenta
+    - no estoy interesado en crearme una cuenta
+    - no es necesario crearme una cuenta por ahora
+
+
+- intent: report_product
+  examples: |
+    - quiero informar que no me interesa el producto [cerveza](producto) de la marca (brahma)[marca]
+    - sabes, el producto [gaseosa](producto) de la marca (manaos)[marca] no es de mi agrado
+    - no quiero saber sobre [desodorante](producto) de la marca (rexona)[marca]
+    - me gustaria que sepas que el producto [shampoo](producto) de la marca (plusbelle)[marca] puedes omitirlo
+    - no es necesario que me comentes sobre el producto [leche](producto) de la marca (milkaut)[marca]
+
+
+- intent: ask_about_product
+  examples: |
+    - que opinas acerca del producto [leche](producto) de la marca [la_serenisima](marca)?
+    - que me puedes decir sobre el producto [fernet](producto) de la marca [branca](marca)?
+    - el producto [yogur](producto) de la marca [ilolay](marca), que dices de el?
+    - dime algo con respecto al producto [desodorante](producto) de la marca [rexona](marca) 
+
+
+- intent: bot_challenge
+  examples: |
+    - sos un robot?
+    - sos un humano?
+    - estoy hablando con un robot?
+    - estoy hablando con un humano?
+    - estoy hablando con una máquina?
+    - que sos?
+    - tenes sentimientos?
+    - describite
+    - eres una inteligencia artificial?
+    - eres humano o robot?
+    - eres una persona real?
+    - eres un ser humano?
+    - tienes emociones?
+
+
+- intent: not_have_account
+  examples: |
+    - no tengo cuenta de cliente personal
+    - no poseo una cuenta de cliente personal
+    - carezco de una cuenta de cliente personal
+    - no me encuentro registrado como cliente personal
+    - no tengo una cuenta de cliente personal
+
+
+- intent: say_dni_to_login
+  examples: |
+    - quiero loguearme, mi dni es [34589321](documento)
+    - me gustaria loguearme, [40977211](documento) es mi dni
+    - si, voy a loguearme, [37845221](documento) es mi dni
+    - deseo loguearme, mi dni es [25548900](documento)
+
+
+- intent: say_dni
+  examples: |
+    - mi numero de documento es [2000000](documento)
+    - [32567912](documento) es mi dni
+    - mi dni es [42775122](documento)
+    - [25655444](documento)
+    - aca esta mi documento (47722125)[documento]
+    - este es mi dni: [11996342](documento)
+    - [44333222](documento)
+
+
+- intent: say_name
+  examples: |
+    - mi nombre es [Rodrigo](nombre) y mi apellido es [Perez](apellido).
+    - soy [Ana](nombre) [Gomez](apellido)
+    - me llamo [Lucas](nombre) [Rampoldi](apellido)
+    - [Carolina](nombre) [Lopez](apellido) es mi nombre completo
+    - me llamo [Maria](nombre) y me apellido [Martinez](apellido)
+    - [Julieta](nombre) es mi nombre y [Almiron](apellido) es mi apellido
+    - me llamo [Tomas](nombre) [Rodriguez](apellido)
+
+
+- intent: say_birthdate
+  examples: |
+    - mi fecha de nacimiento es [12/1/1990](fecha_nacimiento)
+    - naci el [5/3/1985](fecha_nacimiento)
+    - el dia que naci fue [22/7/1999](fecha_nacimiento)
+    - fecha de nacimiento: [10/12/1988](fecha_nacimiento)
+    - cumplo anios el [15/9/1987](fecha_nacimiento)
+    - [10/10/2002](fecha_nacimiento) es mi fecha de nacimiento
+    - naci el [10/10/1990](fecha_nacimiento)
+
+
+- intent: say_email
+  examples: |
+    - mi direccion de correo es [user@example.com](email)
+    - mi email es [example.email123@gmail.com](email)
+    - el email para contactarme es [chatbot@rasa.ai](email)
+    - [user@email.co](email)
+    - [john.doe@domain.io](email) es mi email
+    - mi correo electronico es [janesmith@gmail.com](email)
+    - puedes contactarme en [example.email123@gmail.com](email)
+    - aqui esta mi dirección de correo: [chatbot@rasa.ai](email)
+    - [user@email.co](email) es mi dirección de correo
+    - me puedes escribir a [john.doe@domain.io](email)
+    - puedes enviar un mensaje a [contact@company.com](email)
+    - para comunicarte conmigo, usa [contact@example.org](email)
+    - me encuentro en [user1234@emailprovider.net](email)
+
+
+- intent: ask_promotions_with_lower_prices
+  examples: |
+    - que promociones hay con precio menor o igual a [150](precio)?
+    - que promociones hay que tengan precio menor o igual a [1000](precio)?
+    - que promociones hay con precio menor o igual a [700](precio)?
+    - cuales son las promociones con precio menor o igual a [75](precio)?
+    - cuales son las promociones que tengan precio menor o igual a [1500](precio)?
+    - cuales son las promociones que tengan precio menor o igual a [2300](precio)?
+    - puedes mostrarme las promociones que tengan precio menor o igual a [7899](precio)?
+    - puedes mostrarme las promociones con precio menor o igual a [400](precio)?
+    - puedes mostrarme las promociones con precio menor o igual a [999](precio)?
+    - tienes promociones con precio menor o igual a [4999](precio)?
+    - tienes promociones que tengan precio menor o igual a [600](precio)?
+    - tienes promociones que tengan precio menor o igual a [100](precio)?
+    - hay algun descuento con precio menor o igual a [299](precio)?
+    - hay algun descuento que tenga precio menor o igual a [3449](precio)?
+    - hay algun descuento con precio menor o igual a [9999](precio)?
+    - quiero saber las promociones con precio menor o igual a [12345](precio).
+    - quiero saber las promociones con precio menor o igual a [2999](precio).
+    - quiero saber las promociones que tengan precio menor o igual a [489](precio).
+
+
+- intent: ask_product
+  examples: |
+    - tienen [leche](producto)?
+    - tienen [arroz](producto)?
+    - tienen [aceite](producto)?
+    - quiero saber si tienen [leche](producto)
+    - quiero saber si tienen [arroz](producto)
+    - quiero saber si tienen [aceite](producto)
+    - pueden buscarme [leche](producto)?
+    - pueden buscarme [arroz](producto)?
+    - pueden buscarme [aceite](producto)?
+    - estoy buscando [leche](producto), los tienen?
+    - estoy buscando [arroz](producto, los tienen?
+    - estoy buscando [aceite](producto), los tienen?
+    - necesito [harina](producto), tienen disponible?
+    - necesito [agua](producto), tienen disponible?
+    - necesito [azucar](producto), tienen disponible?
+    - estoy interesado en [queso](producto), lo venden?
+    - estoy interesado en [cereal](producto), lo venden?
+    - estoy interesado en [pan](producto), lo venden?
+    - puedo encontrar [jugo](producto) en su tienda?
+    - puedo encontrar [cafe](producto) en su tienda?
+    - puedo encontrar [shampoo](producto) en su tienda?
+    - quiero [yogur](producto), lo tienen en stock?
+    - quiero [acondicionador](producto), lo tienen en stock?
+    - quiero [lavandina](producto), lo tienen en stock?
+
+- intent: say_brand
+  examples: |
+    - de la marca [frutigram](marca)
+    - de la marca [oreo](marca)
+    - de la marca [9_de_oro](marca)
+    - [arcor](marca) es la marca
+    - [milkaut](marca) es la marca
+    - [sancor](marca) es la marca
+    - me interesa de la marca [ayudin](marca)
+    - me interesa de la marca [coca_cola](marca)
+    - me interesa de la marca [fanta](marca)
+    - quiero sobre la marca [vienissima](marca)
+    - quiero sobre la marca [don_satur](marca)
+    - quiero sobre la marca [poett](marca)
+    - consulto sobre la marca [la_serenisima](marca)
+    - consulto sobre la marca [branca](marca)
+    - consulto sobre la marca [ala](marca)
+
+
+- intent: ask_promotions
+  examples: |
+    - que promociones hay en [lacteos](categoria)?
+    - que promociones hay en [carniceria](categoria)?
+    - que promociones hay en [verduleria](categoria)?
+    - cuales son las promociones en [lacteos](categoria)?
+    - cuales son las promociones en [carniceria](categoria)?
+    - cuales son las promociones en [verduleria](categoria)?
+    - puedes mostrarme las promociones de [lacteos](categoria)?
+    - puedes mostrarme las promociones de [carniceria](categoria)?
+    - puedes mostrarme las promociones de [verduleria](categoria)?
+    - tienes promociones en [lacteos](categoria)?
+    - tienes promociones en [carniceria](categoria)?
+    - tienes promociones en [verduleria](categoria)?
+    - hay algun descuento en [lacteos](categoria)?
+    - hay algun descuento en [carniceria](categoria)?
+    - hay algun descuento en [verduleria](categoria)?
+    - quiero saber las promociones en [lacteos](categoria).
+    - quiero saber las promociones en [carniceria](categoria).
+    - quiero saber las promociones en [verduleria](categoria).
+
+
+- regex: documento
+  examples: |
+    - \b\d{7,8}(-[a-zA-Z])?\b
+
+
+- regex: email
+  examples: |
+    - \b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b
+
+
+- regex: fecha_nacimiento
+  examples: |
+    - ^(\d{1,2})/(\d{1,2})/(\d{4})$
+
+
+- regex: precio
+  examples: |
+    - ^\d{1,5}$
+
+
+- lookup: nombre
+  examples: |
+    - Tomas
+    - Lautaro
+    - Nahuel
+    - Juan
+    - Pedro
+    - Alberto
+    - Julian
+    - Agustin
+    - Roberto
+    - Nicolas
+    - Santiago
+    - Gonzalo
+    - Braian
+    - Adriel
+    - Luis
+    - Ivan
+    - Facundo
+    - Geronimo
+    - Gabriel
+    - German
+    - Andres
+    - Lionel
+    - Laura
+    - Lucia
+    - Valentina
+    - Cristina
+    - Carolina
+    - Andrea
+    - Ana
+    - Emilia
+    - Emiliana
+    - Esteban
+    - Emilio
+    - Luciano
+    - Nehuen
+    - Cristian
+    - Eliseo
+    - Oriana
+    - Isabela
+    - Agustina
+    - Romina
+    - Rocio
+    - Ramon
+    - Camila
+    - Melina
+    - Micaela
+    - Melisa
+    - Abigail
+    - Milagros
+    - Magali
+    - Guadalupe
+    - Martin
+    - Martina
+
+
+- lookup: apellido
+  examples: |
+    - Perez
+    - Gonzalez
+    - Fernandez
+    - Lopez
+    - Martinez
+    - Garcia
+    - Rodriguez
+    - Sanchez
+    - Romero
+    - Torres
+    - Silva
+    - Ruiz
+    - Sosa
+    - Morales
+    - Vargas
+    - Castro
+    - Rios
+    - Jimenez
+    - Alvarez
+    - Ramirez
+    - Herrera
+    - Flores
+    - Benitez
+    - Medina
+    - Suarez
+    - Ortega
+    - Ramos
+    - Velazquez
+    - Messi
+
+
+- lookup: producto
+  examples: |
+    - harina
+    - azucar
+    - cafe
+    - galletas
+    - cereal
+    - pan
+    - carne
+    - pollo
+    - pescado
+    - fruta
+    - verdura
+    - huevos
+    - queso
+    - yogur
+    - manteca
+    - sopa
+    - bebida
+    - refresco
+    - agua
+    - jabon
+    - jugo
+    - shampoo
+    - electronicos
+    - accesorios
+    - calzado
+    - ropa
+    - desinfectante
+    - limpiadores
+    - toallas
+    - papel higienico
+    - pasta dental
+    - cepillo
+    - acondicionador
+    - aceite
+    - detergente
+    - champu
+    - cerveza
+    - vino
+    - arroz
+    - lentejas
+    - leche
+    - mantequilla
+    - yogur
+    - pavo
+    - jamon
+    - salchichas
+    - salami
+    - pescado
+    - camarones
+    - langosta
+    - vegetales
+    - papas
+    - cebollas
+    - zanahorias
+    - lechuga
+    - tomates
+    - pepinos
+    - pimientos
+    - aguacates
+    - manzanas
+    - platanos
+    - uvas
+    - naranjas
+    - tapa pascualina
+    - crema batida
+    - tapa de nalga
+    - vacio novillito
+    - roast beef
+    - peceto novillito
+    - asado novillito
+    - ajo
+    - zapallo anco
+    - pepas
+    - bizcochos
+    - oblea
+    - surtido
+    - trapo pisos
+    - cola
+    - energizante
+    - medialunas
+    - baguette
+    - madalenas
+    - donut
+    - prepizza
+    - premezcla
+    - esencia de vainilla
+    - gelatina
+    - flan
+    - bicarbonato
+    - salchichas
+    - pancho
+    - hamburguesas
+    - fernet
+    - gaseosa
+    - desodorante
+    - mayonesa
+    - ketchup
+    - mostaza
+    - fideos
+    - polenta
+
+
+    
+- lookup: categoria
+  examples: |
+    - limpieza
+    - galletitas
+    - bebidas
+    - panaderia
+    - reposteria
+
+
+- lookup: marca
+  examples: |
+    - la_serenisima
+    - knorr
+    - natura
+    - arcor
+    - sancor
+    - ilolay
+    - luchetti
+    - ala
+    - milkaut
+    - la_paulina
+    - nestle
+    - la_martona
+    - armonia
+    - coca_cola
+    - pepsi
+    - seven_up
+    - sprite
+    - fanta
+    - manaos
+    - crush
+    - goliat
+    - paso_de_los_toros
+    - branca
+    - quilmes
+    - brahma
+    - schneider
+    - isabel
+    - andes
+    - patagonia
+    - cerveza_artisanal
+    - cerveza_antares
+    - imperial
+    - heineken
+    - becker
+    - corona
+    - warsteiner
+    - franziskaner
+    - amstel
+    - stella_artois
+    - grolsch
+    - duff
+    - balta
+    - lager_del_sur
+    - palermo
+    - demonia
+    - peñon_del_aguila
+    - rios_de_vida
+    - berlina
+    - tom
+    - ron
+    - otra
+    - leche_gloria
+    - ser
+    - quaker
+    - granja_del_sol
+    - la_campagnola
+    - tia_maruca
+    - manfrey
+    - la_virginia
+    - mantecol
+    - cepita
+    - villa_del_sur
+    - bagley
+    - granix
+    - lincoln
+    - 9_de_oro
+    - tostadas_la_serenisima
+    - sugus
+    - triunfo
+    - terrabusi
+    - chachitos
+    - criollitas
+    - traviata
+    - anillitos
+    - vainillas_cachafaz
+    - roy
+    - rosen
+    - nectar
+    - georgalos
+    - mora
+    - pan_dulce_fargo
+    - tentacion
+    - felfort
+    - tostadas_morixe
+    - oro
+    - frutigran
+    - jorgito
+    - rumba
+    - paladini
+    - entretenidas
+    - misky
+    - alais
+    - wowie
+    - yaguar
+    - shan_chen
+    - la_costa
+    - crona
+    - semillas_linos
+    - ducal
+    - aymore
+    - lheritier
+    - tostadas_la_virginia
+    - cuadraditos_la_serenisima
+    - coloraditas
+    - semitas
+    - bon_o_bon
+    - festiva
+    - doradas
+    - casa_idea
+    - tostadas_bon_o_bon
+    - prisma
+    - plomada
+    - pringles
+    - oreo
+    - don_satur
+    - lincoln
+    - ovitas
+    - bancha
+    - micaco
+    - apta_celiacos
+    - chip_a_dee
+    - ariel
+    - cif
+    - mr_musculo
+    - ayudin
+    - ajax
+    - calgonit
+    - drive
+    - woolite
+    - vanish
+    - canopus
+    - suma
+    - azulito
+    - caricias
+    - hipoglos
+    - vascolet
+    - biozet
+    - sopalin
+    - ziploc
+    - poett
+    - hinds
+    - neutro_balance
+    - dash
+    - glade
+    - florena
+    - foxy
+    - scotch_brite
+    - lisoform
+    - inovel
+    - harpic
+    - 3m
+    - dixan
+    - farmatint
+    - silvina
+    - bolero
+    - lavanda_60
+    - tampon
+    - juan_valdez
+    - lavandina
+    - rambla
+    - bob_sponge
+    - duraznitos
+    - caseros
+    - vicky
+    - tedeo
+    - adonis
+    - dorado
+    - reflejos
+    - esponja
+    - trinidad
+    - scoop
+    - dulce
+    - azalea
+    - zorro
+    - principe
+    - lemon_fresh
+    - mop
+    - pulmona
+    - ceylan
+    - wipp
+    - sapito
+    - animales
+    - ace
+    - soap
+    - eco
+    - quito
+    - vienissima
+    - frutigram
+    - dove
+    - nivea
+    - rexona
+    - colgate
+    - sensodyne
+    - pantene
+    - loreal
+    - head & shoulders
+    - gillette
+    - oralb
+    - johnsons
+    - neutrogena
+    - huggies
+    - palmolive
+    - kotex
+    - pampers
+    - always
+    - tampax
+    - asepxia
+    - eucerin
+    - plusbelle
+
+
+
+
+
+
+

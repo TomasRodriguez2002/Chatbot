@@ -1,0 +1,37 @@
+version: "3.1"
+
+stories:
+
+- story: greet and login
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - action: utter_ask_login
+
+
+- story: user does not create an account
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - action: utter_ask_login
+    - intent: not_have_account
+    - action: utter_do_you_want_to_create_an_account
+    - intent: deny_to_create_account
+    - action: utter_continue
+    - slot_was_set:
+      - confirmacion: false
+    - action: utter_continue
+
+
+- story: user create an account
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - action: utter_ask_login
+    - intent: not_have_account
+    - action: utter_do_you_want_to_create_an_account
+    - intent: affirm_to_create_account
+    - slot_was_set:
+      - confirmacion: true
+    - action: utter_ask_user_data
+    - action: utter_ask_name

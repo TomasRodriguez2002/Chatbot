@@ -1,0 +1,264 @@
+version: '3.1'
+
+
+intents:
+- affirm
+- affirm_to_create_account
+- ask_product
+- ask_promotions
+- ask_promotions_with_lower_prices
+- bot_challenge
+- deny
+- deny_to_create_account
+- goodbye
+- greet
+- not_have_account
+- out_of_scope
+- say_birthdate
+- say_dni
+- say_dni_to_login
+- say_email
+- say_name
+- thank
+- say_brand
+- report_product
+- ask_about_product
+
+
+actions:
+- action_extract_birthdate
+- action_extract_email
+- action_extract_document
+- action_extract_name_and_lastname
+- action_display_name_and_lastname
+- action_display_email
+- action_display_birthday
+- action_display_document
+- action_get_client_data
+- action_add_client
+- action_search_product
+- action_show_promotions
+- normalize_category_action
+- action_show_promotions_with_price
+- action_search_promotions
+- action_birthday_discount
+- action_report_product
+- action_predict_product
+
+
+entities:
+- documento
+- apellido
+- nombre
+- fecha_nacimiento
+- email
+- producto
+- categoria
+- marca
+- precio
+
+
+slots:
+  categoria:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: categoria
+      intent: ask_promotions
+
+  producto:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: producto
+      intent: ask_product
+
+  confirmacion:
+    type: bool
+    initial_value: false
+    mappings:
+    - type: from_intent
+      intent: affirm_to_create_account
+      value: true
+    - type: from_intent
+      intent: deny_to_create_account
+      value: false
+
+  nombre:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: nombre
+      intent: say_name
+
+  apellido:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: apellido
+      intent: say_name
+
+  fecha_nacimiento:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: fecha_nacimiento
+      intent: say_birthdate
+
+  email:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: email
+      intent: say_email
+
+  documento:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: documento
+      intent: say_dni
+
+
+responses:
+  utter_greet:
+  - text: Hola!
+  - text: Saludos!
+  - text: Que tal!
+  - text: Hey!, como estas?
+  - text: Buenas!
+  - text: Que gusto verte!
+
+  utter_please_rephrase:
+  - text: Lo siento, no logro entender. Podrías expresarte de otro modo?
+  - text: Disculpa, no entiendo. ¿Podrías decirlo de otra manera?
+  - text: Lo siento, no capte eso. ¿Puedes reformularlo?
+  - text: Perdon, no comprendi. ¿Podrías expresarlo de otra forma?
+  - text: Mis disculpas, no estoy seguro de entender. ¿Podrías explicarlo de otra manera?
+  - text: No logro entender lo que quieres decir. ¿Puedes reformularlo, por favor?
+  - text: Estoy un poco perdido, ¿podrías expresarte de manera diferente?
+  - text: Me temo que no entendí eso. ¿Puedes reformular tu pregunta?
+  - text: Lo siento, necesito más claridad. ¿Podrías decirlo de otra forma?
+  - text: Mi capacidad de comprensión tiene límites. ¿Puedes reformular tu pregunta?
+  - text: No estoy seguro de entender tu pregunta. ¿Podrías expresarla de otro modo?
+
+  utter_cheer_up:
+  - text: Si te hace sentir mejor, recuerda que messi es campeón del mundo :D
+
+  utter_did_that_help:
+  - text: ¿Pudo ayudarte?
+  - text: ¿Sirvió de ayuda?
+  - text: ¿Te resultó útil?
+  - text: ¿Fue de ayuda?
+  - text: ¿Eso te sirvió?
+  - text: ¿Estás satisfecho con eso?
+  - text: ¿Pudiste resolver tu pregunta?
+  - text: ¿Te encuentras satisfecho?
+  - text: ¿Eso solucionó tu problema?
+  - text: ¿Quedaste conforme con la respuesta?
+
+  utter_happy:
+  - text: Genial, sigue así!
+  - text: Perfecto, continua asi.
+  - text: Excelente, sigue adelante.
+  - text: Muy bien, sigue en esa direccion.
+  - text: Fantastico, mantén el buen trabajo.
+  - text: Estupendo, no pares ahora.
+  - text: Brillante, sigue con ese animo.
+  - text: Maravilloso, sigues en el camino correcto.
+  - text: Increible, sigue avanzando.
+  - text: Impresionante, continua como vas.
+  - text: Fabuloso, sigue en esa linea.
+
+  utter_you_are_welcome:
+  - text: De nada!
+  - text: No hay de que!
+  - text: No por favor, estoy aquí para ayudarte!
+
+  utter_great:
+  - text: Genial, me alegra que te haya servido.
+  - text: Excelente, me complace haber podido ayudarte.
+  - text: Fantastico, me alegra que haya sido util para ti.
+  - text: Estupendo, me alegra saber que te ha servido.
+  - text: Maravilloso, me alegra haber sido de ayuda.
+  - text: Perfecto, me alegra que te haya sido util.
+  - text: Increible, me alegra haber cumplido tus expectativas.
+  - text: Fenomenal, me complace que hayas encontrado lo que buscabas.
+  - text: Asombroso, me alegra que te haya servido bien.
+  - text: Impresionante, me complace haber podido asistirte.
+  - text: Genial, me alegra que hayas obtenido lo que necesitabas.
+
+  utter_sorry:
+  - text: Lamento oir eso. Estoy aqui para ayudarte en lo que necesites.
+  - text: Siento escuchar eso. Si necesitas ayuda en algo, por favor hazmelo saber.
+  - text: Que pena saber eso. Estoy aqui para asistirte si lo necesitas.
+  - text: Me entristece oir eso. Si tienes alguna pregunta o necesitas asistencia, estoy disponible.
+  - text: Lamento escuchar eso. Si requieres ayuda, no dudes en decirmelo.
+  - text: Que pena. Estoy aqui para ayudarte en lo que pueda.
+  - text: Es una lastima escuchar eso. Si tienes alguna consulta, estoy aqui para responderla.
+  - text: Siento oir eso. ¿Hay algo especifico en lo que pueda asistirte?
+  - text: Que mal. Si tienes alguna inquietud, por favor hazmela saber.
+  - text: Lamento la situacion. Si necesitas algo, estoy a tu disposicion.
+
+  utter_goodbye:
+  - text: Nos vemos!
+  - text: Hasta pronto!
+  - text: Hasta luego!
+  - text: adios!
+  - text: Hasta la proxima!
+
+  utter_continue:
+  - text: Ok! Soy todo oidos, que necesitas?
+  - text: A sus ordenes! En que puedo ayudarte hoy?
+  - text: No hay problema! Dime, como puedo servirte?
+
+  utter_iamabot:
+  - text: Soy un robot, desarrollado por rasa
+
+  utter_ask_login:
+  - text: Por favor logueate si eres cliente personal, ingresando tu DNI
+  - text: Si contas con una cuenta de cliente personal, logueate ingresando tu DNI
+  - text: Ya tenes cuenta de cliente personal? Logueate ingresando tu DNI
+
+  utter_do_you_want_to_create_an_account:
+  - text: quieres crearte ahora mismo una cuenta de cliente personal?
+  - text: te gustaria crear tu cuenta de cliente personal en este momento?
+  - text: te parece si creamos tu cuenta de cliente personal ahora?
+  - text: que dices si creamos rapidamente tu cuenta de cliente personal?
+
+  utter_ask_user_data:
+  - text: Genial! necesito que me brindes algunos datos
+  - text: Buenisimo! comenzaremos preguntandote algunos datos
+  - text: Bien! te solicitare que ingreses algunos datos
+
+  utter_ask_name:
+  - text: cuales son tu nombre y apellido?
+  - text: dime tu nombre y apellido por favor
+  - text: escribe tu nombre y apellido por favor
+  - text: ingresa tu nombre y apellido por favor
+
+  utter_ask_dni:
+  - text: dime cual es tu numero de documento
+  - text: ahora ingresa tu numero de documento
+  - text: necesito que escribas tu numero de documento
+
+  utter_ask_birthdate:
+  - text: en que fecha naciste (dd/mm/yyyy)?
+  - text: naciste en que fecha (dd/mm/yyyy)?
+  - text: brindame tu fecha de nacimiento (dd/mm/yyyy)
+
+  utter_ask_email:
+  - text: necesito saber tu direccion de email
+  - text: otorgame tu direccion de email por favor
+  - text: ingresa tu direccion de email
+  - text: cual es tu direccion de email?
+
+  utter_ask_brand:
+  - text: de que marca?
+  - text: de cual marca?
+  - text: que marca del producto te interesa?
+
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
